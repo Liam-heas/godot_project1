@@ -1,7 +1,30 @@
-[gd_scene format=3 uid="uid://cl8n8lan17l0x"]
+[gd_scene load_steps=4 format=3 uid="uid://cl8n8lan17l0x"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Shader" path="res://node_2d.gdshader" id="1_xn5wb"]
+[ext_resource type="Texture2D" uid="uid://dkl680c1ekefb" path="res://circle.png" id="2_r0te8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_moymi"]
+shader = ExtResource("1_xn5wb")
+
+[node name="Scene1" type="Node2D"]
 
 [node name="Node2D" type="Node2D" parent="."]
 
-[node name="Node2D2" type="Node2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="Node2D"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Node2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_moymi")
+offset_left = -1.0
+offset_top = -5.0
+offset_right = 1153.0
+offset_bottom = 641.0
+
+[node name="player" type="Node2D" parent="Node2D"]
+
+[node name="PlayerSprite" type="Sprite2D" parent="Node2D/player"]
+position = Vector2(-10.3125, -3.8125)
+scale = Vector2(0.855469, 0.824219)
+texture = ExtResource("2_r0te8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
