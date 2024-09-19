@@ -14,7 +14,6 @@ func _on_body_entered(body:Node2D) -> void:
 
 func _process(delta: float) -> void:
 	pass
-
 	
 func _physics_process(delta: float) -> void:
 	
@@ -24,4 +23,3 @@ func _physics_process(delta: float) -> void:
 		self.rotation -= delta*move_speed
 	if Input.is_action_pressed("ui_right"):
 		self.rotation += delta*move_speed
-		
