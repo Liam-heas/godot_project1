@@ -10,6 +10,7 @@ func _ready() -> void:
 
 func _on_body_entered(body:Node2D) -> void:
 	print(body)
+	get_tree().change_scene_to_file("res://node_2d.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _process(delta: float) -> void:
