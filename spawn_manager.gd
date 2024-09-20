@@ -5,20 +5,28 @@ class_name SpawnManager
 @export var next_time_to_spawn: float = 0.0
 @export var obstacle_scene: PackedScene
 @export var target_node: Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	assert(obstacle_scene)
 	assert(target_node)
 	next_time_to_spawn = Time.get_unix_time_from_system() + (1.0/spawn_rate)
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	pass
+	
 	
 func _physics_process(delta: float) -> void:
 	if Time.get_unix_time_from_system() >= next_time_to_spawn:
 		var new_obstacle := obstacle_scene.instantiate()
+		randomize()
+		new_obstacle.rotation = randf_range(0, TAU)
+		
 		target_node.add_child(new_obstacle)
+	
+		
 		next_time_to_spawn = Time.get_unix_time_from_system() + (1.0/spawn_rate)

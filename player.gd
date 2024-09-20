@@ -16,6 +16,7 @@ func _on_body_entered(body:Node2D) -> void:
 func _process(delta: float) -> void:
 	pass
 	
+	
 func _physics_process(delta: float) -> void:
 	
 	self.rotation -= 0.0
